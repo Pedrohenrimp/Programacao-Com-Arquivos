@@ -1,6 +1,6 @@
 #include "gerarArquivoDat.c"
 
-struct Palavra *CopiarArquivoDat(struct Palavra *lista, char nomeArquivo[]) {
+struct Palavra *CopiarArquivoDat(struct Indice *indice, struct Palavra *lista, char nomeArquivo[]) {
     FILE *arquivo;
     if(arquivo != NULL) {
         arquivo = fopen(nomeArquivo, "rb");
@@ -21,9 +21,9 @@ struct Palavra *CopiarArquivoDat(struct Palavra *lista, char nomeArquivo[]) {
             for(i = 0; i < qtdOcorrencias; i++) {
                 fread(&linhas[i], sizeof(int), 1, arquivo);
             }
-            lista = InserirOrdemAlfabetica(lista, palavra, linhas[0]);
+            lista = InserirOrdemAlfabetica(lista, palavra, linhas[0], PosicaoArquivo(indice->arquivos, nomeArquivo, indice->qtdArquivos));
             for(i = 1; i < qtdOcorrencias; i++) {
-                AtualizarPalavra(lista, palavra, linhas[i]);
+                AtualizarPalavra(lista, palavra, linhas[i], PosicaoArquivo(indice->arquivos, nomeArquivo, indice->qtdArquivos));
             }
             free(linhas);
         }
