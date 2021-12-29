@@ -1,0 +1,4 @@
+Este e um arquivo de texto de teste 2 para saber se esta contando
+outras palavras alem das que ja estavam no arquivo texto um.
+
+vou colocar virgulas, pontos, e outras coisas para testar!! mas gostaria de saber se esta funcionando direito.
